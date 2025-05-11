@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Images from './pages/Images';
+import Contact from './pages/Contact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="container mx-auto">
+        <h1 className="text-4xl font-bold my-4">React + Django Full-Stack Example</h1>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/images" element={<Images />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+function Home() {
+  return (
+    <div className="p-4">
+      <h2 className="text-2xl">Welcome to the Shermuhammadning websayti</h2>
+      <p className="mt-2">Click below to see the data:</p>
+      <ul>
+        <li>
+          <a href="/images" className="text-blue-500 hover:underline">View Images</a>
+        </li>
+        <li>
+          <a href="/contact" className="text-blue-500 hover:underline">View Contact Users</a>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+export default App;
