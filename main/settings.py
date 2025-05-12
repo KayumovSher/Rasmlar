@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # App
     'backend.apps.BackendConfig',
+    'rest_framework',
 
     'corsheaders',
 ]
