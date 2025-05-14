@@ -2,7 +2,7 @@ import React from 'react';
 
 function Home() {
   return (
-    <div className="relative isolate px-6 pt-28 lg:px-8">
+    <div className="relative isolate px-4 pt-1">
       {/* Top Decorative Background */}
       <div
         aria-hidden="true"

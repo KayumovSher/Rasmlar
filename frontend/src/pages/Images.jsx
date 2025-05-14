@@ -18,7 +18,7 @@ function Images() {
       <BlobBackground position="top" />
       <BlobBackground position="bottom" />
 
-      <h1 className="text-3xl font-bold text-center mb-8">Images Gallery</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 text-black">Images Gallery</h1>
 
       {loading ? (
         <div className="text-center text-indigo-500 font-medium">Loading...</div>
@@ -28,7 +28,7 @@ function Images() {
         <ul className="grid md:grid-cols-2 gap-6">
           {images.map((img) => (
             <li key={img.id}>
-              <h2 className="text-xl font-semibold">{img.title}</h2>
+              <h2 className="text-xl font-semibold text-[#646cff]">{img.title}</h2>
               <img
                 src={img.url}
                 alt={img.title}

@@ -14,11 +14,11 @@ function Contact() {
   }, []);
 
   return (
-    <div className="relative isolate px-6 pt-24 lg:px-8 min-h-screen">
+    <div className="relative isolate px-16 pt-34 min-h-screen">
       <BlobBackground position="top" />
       <BlobBackground position="bottom" />
 
-      <h2 className="text-3xl font-bold text-center mb-8">Contact Users</h2>
+      <h2 className="text-3xl font-bold text-center mb-8 text-black">Contact Users</h2>
 
       {loading ? (
         <div className="text-center text-indigo-500 font-medium">Loading...</div>
@@ -28,9 +28,9 @@ function Contact() {
         <ul className="grid md:grid-cols-2 gap-6">
           {users.map((user) => (
             <li key={user.id} className="bg-white p-4 rounded shadow-md">
-              <h3 className="text-xl font-semibold text-indigo-600">{user.name}</h3>
-              <p>ID: {user.id}</p>
-              <p>Email: {user.email}</p>
+              <h3 className="text-xl font-semibold text-[#646cff]">{user.name}</h3>
+              <p className="text-gray-500">ID: {user.id}</p>
+              <p className="text-gray-500">Email: {user.email}</p>
             </li>
           ))}
         </ul>

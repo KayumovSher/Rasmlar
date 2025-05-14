@@ -14,9 +14,11 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="absolute inset-x-0 top-0 z-50 bottom-0">
+      <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-10" >
         <div className="flex lg:flex-1">
+
+          {/* Logo */}
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Shermukhammad</span>
             <img
@@ -26,18 +28,34 @@ export default function Navbar() {
             />
           </Link>
         </div>
+
+        {/* Search Input (visible on large screens) */}
+        <div className="relative hidden lg:block w-100 mr-10 mx-auto">
+          {/* <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" /> */}
+            <input
+              type="text"
+              placeholder="Search..."
+              className="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+        
+
+        {/* Mobile menu button */}
         <div className="flex lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             onClick={() => setMobileMenuOpen(true)}
           >
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <span className="sr-only">Open main menu</span>
+            <Bars3Icon className="size-6" aria-hidden="true" />
           </button>
         </div>
+
+        {/* Navigation links (desktop) */}
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <Link key={item.name} to={item.href} className="text-sm font-semibold text-gray-900">
+            <Link key={item.name} to={item.href} className="text-sm/6 font-semibold text-gray-900">
               {item.name}
             </Link>
           ))}
@@ -60,22 +78,29 @@ export default function Navbar() {
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon className="size-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="mt-6">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50 rounded"
-              >
-                {item.name}
-              </Link>
-            ))}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-500/10">
+              <div className="space-y-2 py-6 text-center">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  >
+                  {item.name}
+                </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </DialogPanel>
+       
       </Dialog>
+      
     </header>
   );
 }

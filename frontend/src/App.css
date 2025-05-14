@@ -1,3 +1,4 @@
+@import "tailwindcss";
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +40,13 @@
 
 .read-the-docs {
   color: #888;
+}
+
+:root {
+  --color-mint-500: oklch(0.72 0.11 178);
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-poppins: Poppins, sans-serif;
+  --breakpoint-3xl: 120rem;
 }
