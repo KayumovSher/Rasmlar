@@ -2,7 +2,8 @@ import React from 'react';
 
 function Home() {
   return (
-    <div className="relative isolate px-4 pt-1">
+    
+    <div className="relative isolate px-5 pt-1">
       {/* Top Decorative Background */}
       <div
         aria-hidden="true"
@@ -15,31 +16,23 @@ function Home() {
               'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
           }}
         />
-      </div>
+        </div>
 
       {/* Main Content */}
-      <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 text-center">
-        <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl">
-          Data to enrich your online business
-        </h1>
-        <p className="mt-6 text-lg text-gray-600 sm:text-xl">
-          Anim aute id magna aliqua ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.
-        </p>
-        <div className="mt-10 flex justify-center gap-x-6">
-          <a
-            href="#"
-            className="rounded-md bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-md hover:bg-indigo-500 transition"
-          >
-            Get started
-          </a>
-          <a
-            href="#"
-            className="text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition"
-          >
-            Learn more <span aria-hidden="true">→</span>
-          </a>
+      <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-16 text-center">
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <button className="border border-purple-200 text-purple-600 hover:border-transparent hover:bg-purple-600 hover:text-white active:bg-purple-700 px-4 py-2 rounded font-semibold">Message</button>
+          <button className="bg-[#9089fc] hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Tabiat</button>
+          <button className="bg-[#9089fc] hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Fon</button>
+          <button className="bg-[#9089fc] hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Sayohat</button>
+          <button className="bg-[#9089fc] hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Odamlar</button>
+          <button className="bg-[#9089fc] hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Binolar</button>
+          <button className="bg-[#9089fc] hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">Sertifikat</button>
+          <button className="bg-[#9089fc] hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded">IT</button>
         </div>
       </div>
+      
+      
 
       {/* Bottom Decorative Background */}
       <div
@@ -54,7 +47,10 @@ function Home() {
           }}
         />
       </div>
+      
     </div>
+
+    
   );
 }
 
