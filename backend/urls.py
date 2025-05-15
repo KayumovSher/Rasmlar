@@ -4,7 +4,7 @@ from .views import index, image_list
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('images/', views.image_list, name='image-list'),
+    path('image/', views.image_list, name='image-list'),
     path('users/', views.user_list, name='user-list'),
 
 ]

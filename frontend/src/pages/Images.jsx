@@ -6,7 +6,7 @@ function Images() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/images/")
+    fetch("http://127.0.0.1:8000/api/image/")
       .then((response) => response.json())
       .then((data) => setImages(data))
       .catch((error) => console.error("Error fetching images:", error))
@@ -30,7 +30,7 @@ function Images() {
             <li key={img.id}>
               <h2 className="text-xl font-semibold text-[#646cff]">{img.title}</h2>
               <img
-                src={img.url}
+                src={img.image}
                 alt={img.title}
                 className="w-full h-auto rounded shadow-md mt-2"
               />

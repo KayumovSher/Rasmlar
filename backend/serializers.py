@@ -1,9 +1,15 @@
 from rest_framework import serializers
-from .models import  Images
+from .models import Image
 
-class ImagesSeralizer(serializers.ModelSerializer):
+class ImageSeralizer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
     class Meta:
-        model = Images
-        fields = ['id', 'title', 'url']
+        model = Image
         fields = '__all__'
-        # exclude = ['id']
+
+    def get_image(self, obj):
+        request = self.context.get('request')
+        if request:
+            return request.build_absolute_uri(obj.image.url)
+        return obj.image.url

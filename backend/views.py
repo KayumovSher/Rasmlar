@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotAllowed, JsonResponse
-from .models import Images, Users
+from .models import Image, Users
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from.serializers import ImagesSeralizer
+from.serializers import ImageSeralizer
 
 # Create your views here.
 def index(request):
@@ -11,10 +11,21 @@ def index(request):
 
 @api_view(['GET'])
 def image_list(request):
-    images = Images.objects.all()
-    serializer = ImagesSeralizer(images, many=True)
-        
+    category = request.GET.get('category')
+    wallpaper_type = request.GET.get('wallpaper_type')
+    image = Image.objects.all()
+    if category:
+        images = images.filter(category=category)
+
+    if category == 'wallpaper' and wallpaper_type:
+        images = images.filter(wallpaper_type=wallpaper_type)
+
+    serializer = ImageSeralizer(image, many=True, context={'request': request})
     return Response(serializer.data)
+
+
+
+
 
 def user_list(request):
     users = Users.objects.all()
