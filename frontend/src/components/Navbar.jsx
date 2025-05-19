@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Images', href: '/images' },
+  // { name: 'Images', href: '/images' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -14,7 +14,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50 bottom-0">
+    <header className="fixed inset-x-0 top-0 z-50 bg-white shadow">
       <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-10" >
         <div className="flex lg:flex-1">
 

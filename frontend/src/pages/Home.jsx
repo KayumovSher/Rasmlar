@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 
 const categories = [
   { key: "", label: "All" },
@@ -10,41 +10,50 @@ const categories = [
   { key: "sertificates", label: "Sertifikat" },
   { key: "technology", label: "Texnologiya" },
   { key: "wallpaper", label: "Fon" },
-         // Adjust these keys to your actual categories
-  
 ];
-
 
 function Home() {
   const [images, setImages] = useState([]);
-  const [filteredImages, setFilteredImages] = useState([]);
   const [activeCategory, setActiveCategory] = useState("");
+  const [filteredImages, setFilteredImages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/image/")
+    fetchImages();
+  }, []);
+
+  const fetchImages = (categoryKey = "") => {
+    setLoading(true);
+    let url = "http://127.0.0.1:8000/api/image/";
+    if (categoryKey) {
+      url += `?category=${categoryKey}`;
+    }
+
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setImages(data);
-        setFilteredImages(data); // Show all by default
+        setFilteredImages(data);
+        if (!categoryKey) {
+          setImages(data);
+        }
+        setLoading(false);
       })
-      .catch((err) => console.error("Error fetching images:", err));
-  }, []);
+      .catch((err) => {
+        console.error("Fetch error:", err);
+        setFilteredImages([]);
+        setLoading(false);
+      });
+  };
 
   const filterByCategory = (categoryKey) => {
     setActiveCategory(categoryKey);
-    if (categoryKey === "") {
-      setFilteredImages(images);
-    } else {
-      const filtered = images.filter((img) => img.category === categoryKey);
-      setFilteredImages(filtered);
-    }
+    fetchImages(categoryKey);
   };
-  
+
   return (
-    
-    <div className="relative isolate px-5 pt-16">
-      {/* Category Buttons */}
-      <div className="mt-6 flex flex-wrap justify-center gap-4">
+    <div className="relative isolate px-4 pt-26 lg:px-8 min-h-screen">
+      {/* Category Buttons - Top */}
+      <div className="mb-6 flex flex-wrap justify-center gap-4">
         {categories.map(({ key, label }) => (
           <button
             key={key}
@@ -61,8 +70,10 @@ function Home() {
       </div>
 
       {/* Image Gallery */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-        {filteredImages.length === 0 ? (
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-1 mt-7">
+        {loading ? (
+          <p className="text-center text-gray-500 col-span-full">Yuklanmoqda...</p>
+        ) : filteredImages.length === 0 ? (
           <p className="text-center text-gray-500 col-span-full">Rasmlar topilmadi.</p>
         ) : (
           filteredImages.map((img) => (
@@ -78,8 +89,6 @@ function Home() {
         )}
       </div>
     </div>
-
-    
   );
 }
 

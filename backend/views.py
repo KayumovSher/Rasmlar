@@ -13,15 +13,18 @@ def index(request):
 def image_list(request):
     category = request.GET.get('category')
     wallpaper_type = request.GET.get('wallpaper_type')
-    image = Image.objects.all()
+    images = Image.objects.all()  # ✅ Fix name
+
     if category:
         images = images.filter(category=category)
 
     if category == 'wallpaper' and wallpaper_type:
         images = images.filter(wallpaper_type=wallpaper_type)
 
-    serializer = ImageSeralizer(image, many=True, context={'request': request})
+    serializer = ImageSeralizer(images, many=True, context={'request': request})
     return Response(serializer.data)
+
+
 
 
 
