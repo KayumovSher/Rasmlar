@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import BlobBackground from "../components/BlobBackground";
 
 const categories = [
   { key: "", label: "All" },
@@ -52,6 +53,8 @@ function Home() {
 
   return (
     <div className="relative isolate px-4 pt-26 lg:px-8 min-h-screen">
+      <BlobBackground position="top" />
+      <BlobBackground position="bottom" />
       {/* Category Buttons - Top */}
       <div className="mb-6 flex flex-wrap justify-center gap-4">
         {categories.map(({ key, label }) => (
