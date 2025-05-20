@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
-import BlobBackground from "../components/BlobBackground";
+
 
 const navigation = [
-  { name: 'Home', href: '/' },
+  { name: 'Bosh sahifa', href: '/' },
   // { name: 'Images', href: '/images' },
-  { name: 'Contact', href: '/contact' },
+  { name: "Bog'lanish", href: '/contact' },
+  { name: "Biz haqimizda", href: '/about' },
 ];
 
 export default function Navbar() {
@@ -16,9 +17,6 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-white shadow">
-      {/* Background blobs */}
-      <BlobBackground position="top" />
-      <BlobBackground position="bottom" />
 
       <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-10" >
         <div className="flex lg:flex-1">

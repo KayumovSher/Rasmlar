@@ -53,6 +53,7 @@ function Home() {
 
   return (
     <div className="relative isolate px-4 pt-26 lg:px-8 min-h-screen">
+      {/* Background blobs */}
       <BlobBackground position="top" />
       <BlobBackground position="bottom" />
       {/* Category Buttons - Top */}
@@ -73,7 +74,7 @@ function Home() {
       </div>
 
       {/* Image Gallery */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-1 mt-7">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-1 mt-7">
         {loading ? (
           <p className="text-center text-gray-500 col-span-full">Yuklanmoqda...</p>
         ) : filteredImages.length === 0 ? (
@@ -81,7 +82,7 @@ function Home() {
         ) : (
           filteredImages.map((img) => (
             <div key={img.id} className="bg-white p-2 rounded shadow">
-              <h2 className="text-lg font-semibold text-[#646cff] mb-2">{img.title}</h2>
+              {/* <h3 className="text-lg font-semibold text-[#646cff] mb-2">{img.title}</h3> */}
               <img
                 src={img.image}
                 alt={img.title || "Image"}

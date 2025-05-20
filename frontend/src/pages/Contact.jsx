@@ -18,7 +18,7 @@ function Contact() {
       <BlobBackground position="top" />
       <BlobBackground position="bottom" />
 
-      <h2 className="text-3xl font-bold text-center mb-8 text-black">Contact Users</h2>
+      <h2 className="text-3xl font-bold text-center mb-8 text-black">Biz haqimizda</h2>
 
       {loading ? (
         <div className="text-center text-indigo-500 font-medium">Loading...</div>
