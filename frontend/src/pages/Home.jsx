@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import BlobBackground from "../components/BlobBackground";
 
 const categories = [
-  { key: "", label: "All" },
+  { key: "", label: "Hammasi" },
   { key: "animals", label: "Hayvonlar" },
   { key: "buildings", label: "Binolar" },
   { key: "foods", label: "Taomlar" },
@@ -75,6 +75,9 @@ function Home() {
 
       {/* Image Gallery */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-1 mt-7">
+        {/* Background blobs */}
+      <BlobBackground position="top" />
+      <BlobBackground position="bottom" />
         {loading ? (
           <p className="text-center text-gray-500 col-span-full">Yuklanmoqda...</p>
         ) : filteredImages.length === 0 ? (
@@ -92,6 +95,9 @@ function Home() {
           ))
         )}
       </div>
+      {/* Background blobs */}
+      <BlobBackground position="top" />
+      <BlobBackground position="bottom" />
     </div>
   );
 }
