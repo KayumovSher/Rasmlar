@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Images from './pages/Images';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import License from './pages/License';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/images" element={<Images />} />
             <Route path="/contact" element={<Contact />} />
             <Route path='/about' element={<About />} />
+            <Route path='/license' element={<License />} />
           </Routes>
         </main>
 

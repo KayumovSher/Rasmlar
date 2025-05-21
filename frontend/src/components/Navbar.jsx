@@ -62,8 +62,8 @@ export default function Navbar() {
 
         {/* Desktop nav links */}
         <div className="hidden lg:flex lg:gap-x-10 items-center">
-          <Link to="/" className="text-l font-semibold text-indigo-600 hover:text-sky-700">Bosh sahifa</Link>
-          <Link to="/contact" className="text-l font-semibold text-indigo-600 hover:text-sky-700">Bog'lanish</Link>
+          <Link to="/" className="flex text-l font-semibold text-indigo-600 hover:text-sky-700">Bosh sahifa</Link>
+          <Link to="/contact" className="flex text-l font-semibold text-indigo-600 hover:text-sky-700">Bog'lanish</Link>
 
           {/* Biz haqimizda Dropdown */}
           <div ref={dropdownRef} className="relative">
@@ -71,26 +71,26 @@ export default function Navbar() {
               onClick={() => setAboutDropdownOpen((prev) => !prev)}
               className="flex items-center gap-1 text-l font-semibold text-indigo-600 hover:text-sky-700"
             >
-              Biz haqimizda
+              Xizmat ko'rsatish
               {aboutDropdownOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
             </button>
 
             {aboutDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50 py-2">
                 <Link
-                  to="/about/company"
+                  to="/about"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 >
-                  Kompaniya haqida
+                  Biz haqimizda
                 </Link>
                 <Link
-                  to="/about/team"
+                  to="/license"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 >
-                  Jamoa
+                  Litsenziya
                 </Link>
                 <Link
-                  to="/about/mission"
+                  to="/#"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 >
                   Maqsad
@@ -130,7 +130,7 @@ export default function Navbar() {
                   Bog'lanish
                 </Link>
                 <Link to="/about" className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">
-                  Biz haqimizda
+                  Xizmat ko'rsatish
                 </Link>
               </div>
             </div>
