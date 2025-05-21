@@ -56,7 +56,6 @@ function Home() {
       {/* Background blobs */}
       <BlobBackground position="top" />
       <BlobBackground position="bottom" />
-      {/* Category Buttons - Top */}
       <div className="mb-6 flex flex-wrap justify-center gap-4">
         {categories.map(({ key, label }) => (
           <button
@@ -75,9 +74,6 @@ function Home() {
 
       {/* Image Gallery */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-1 mt-7">
-        {/* Background blobs */}
-      <BlobBackground position="top" />
-      <BlobBackground position="bottom" />
         {loading ? (
           <p className="text-center text-gray-500 col-span-full">Yuklanmoqda...</p>
         ) : filteredImages.length === 0 ? (
@@ -96,7 +92,6 @@ function Home() {
         )}
       </div>
       {/* Background blobs */}
-      <BlobBackground position="top" />
       <BlobBackground position="bottom" />
     </div>
   );

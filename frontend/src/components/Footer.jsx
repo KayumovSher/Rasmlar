@@ -4,7 +4,7 @@ import { FaTelegram, FaInstagram, FaGithub, FaFacebook, FaLinkedin, FaEnvelope }
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-15 m-0 relative isolate">
+    <footer className="bg-gray-800 text-white py-10 relative isolate w-full">
       <div className="text-center text-lg">
         <p>&copy; 2025 Shermukhammad's Website. All rights reserved.</p>
 

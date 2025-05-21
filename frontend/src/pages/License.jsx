@@ -2,7 +2,7 @@ import React from 'react';
 import BlobBackground from "../components/BlobBackground";
 import Footer from '../components/Footer';
 
-function About() {
+function License() {
   return (
     <div className="relative">
       {/* Decorative Backgrounds */}
@@ -10,70 +10,72 @@ function About() {
       {/* <BlobBackground position="bottom" /> */}
 
       {/* Main Content */}
-      <div className="relative isolate pt-34 mx-auto text-center">
+      <div className="relative isolate pt-36 mx-auto text-center">
 
         {/* Section with background image */}
         <div
-          className="rounded-lg overflow-hidden text-white mb-10"
+          className="rounded-lg overflow-hidden text-white"
           style={{
-            backgroundImage: "url('/about/Abu_Dhabi5K.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         >
           {/* Overlay for readability */}
-          <div className="bg-indigo-400/25 px-6 py-45">
-            <h1 className="text-7xl font-bold mb-4">Biz haqimizda</h1>
-            <p className="text-2xl">
-                Ushbu sayt sizga bepul, litsenziyaga ega, yuqori sifatdagi suratlarni toifalar bo‘yicha taqdim etish, Company-Name butun dunyodagi millionlab ijodkorlarga chiroyli mahsulotlar va dizaynlarni osongina yaratishda yordam beradi.
+          <div className="px-6 py-15">
+            <h1 className="text-7xl font-bold mb-4 text-sky-700">Litsenziya</h1>
+            <p className="text-2xl text-sky-700">
+                Company-Name xizmatidan qanday foydalanish mumkinligini belgilab beruvchi xususiy hujjat.
             </p>
           </div>
         </div>
 
 
+        <h2 className="text-4xl font-semibold text-sky-700 py-3">Nimaga ruxsat berilgan ✅</h2>
+        <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
+          <ul className="list-disc list-inside space-y-3">
+            <p className='text-xl' >Company-Name-dagi barcha fotosuratlardan foydalanish bepul.</p>
+          </ul>
+        </div>
 
-        {/* Photos */}
+        <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
+          <ul className="list-disc list-inside space-y-3">
+            <p className='text-xl' >Atribut shart emas. Fotosuratchi yoki Company-Namega kredit berish shart emas, lekin har doim Company-Name maxsulotlari qadrlanadi.</p>
+          </ul>
+        </div>
+
+        <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
+          <ul className="list-disc list-inside space-y-3">
+            <p className='text-xl' >Siz Company-Name-dan fotosuratlar o'zgartirishingiz mumkin. Ijodkor bo'ling va ularni xohlaganingizcha tahrirlang.</p>
+          </ul>
+        </div>
+
+        <h2 className="text-4xl font-semibold text-sky-700 py-3">Nimaga ruxsat berilmagan ❌</h2>
+
         <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
             {/* Decorative Backgrounds */}
             <BlobBackground position="top" />
-          <h2 className="text-4xl font-semibold text-indigo-500">Rasmlar</h2>
           <ul className="list-disc list-inside space-y-3">
-            <p className='text-xl' >Bizda yuz minglab bepul fotosuratlar mavjud va har kuni yangi, yuqori aniqlikdagi fotosuratlar qo'shiladi. Barcha fotosuratlar bizning foydalanuvchilarimiz tomonidan yuklangan yoki bepul rasm veb-saytlaridan olingan fotosuratlardan qo'lda tanlangan. Biz chop etilgan barcha rasmlar yuqori sifatli va Company-name litsenziyasi ostida litsenziyalanganligiga ishonch hosil qilamiz.</p>
+            <p className='text-xl' >Savdo belgisi, dizayn belgisi, savdo nomingiz, biznes nomingiz yoki xizmat ko'rsatish belgingizning bir qismi sifatida bizning savdo nomimiz va savdo belgizmidan foydalanmang.</p>
           </ul>
         </div>
 
-        {/* Photo Sources */}
         <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
-          <h2 className="text-4xl font-semibold text-indigo-500">Rasm manbalari</h2>
           <ul className="list-disc list-inside space-y-3">
-            <p className='text-xl' >Fotosuratlar ma'lumotlar bazasiga faqat fotograflar hamjamiyatimizdagi bepul rasmlar qo'shiladi. Biz doimo veb-saytimizdan foydalanadigan ijodkorlarga iloji boricha ko'proq yuqori sifatli bepul suratlarni yetkazib berishga harakat qilamiz.</p>
+            <p className='text-xl' >Suratlarni boshqa stok foto yoki fon rasmi platformalarida qayta tarqatmang yoki sotmang.</p>
           </ul>
         </div>
 
-        {/* Team */}
         <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
-          <h2 className="text-4xl font-semibold text-indigo-500">Jamoa</h2>
           <ul className="list-disc list-inside space-y-3">
-            <p className='text-xl' >Qayumov Shermuhammad boshqaradi va 2025 yilda Company-name kompaniyasiga asos solgan.</p>
+            <p className='text-xl' >Tasvirlarni mahsulotingiz, odamlar yoki brendlar tomonidan ma'qullanishini nazarda tutmang.</p>
           </ul>
         </div>
-
-        {/* Purpose */}
-        <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
-            {/* Decorative Backgrounds */}
-            <BlobBackground position="top" />
-          <h2 className="text-4xl font-semibold text-indigo-500">Bizning maqsad</h2>
-          <ul className="list-disc list-inside space-y-3">
-            <p className='text-xl' >Biz millionlab dizaynerlar, yozuvchilar, rassomlar, dasturchilar va boshqa ijodkorlarga ajoyib mahsulotlar, dizaynlar, hikoyalar, veb-saytlar, ilovalar, sanʼat va boshqa asarlar yaratish imkonini beruvchi bemalol foydalanishlari mumkin boʻlgan chiroyli, mutlaqo bepul, suratlarga kirishda yordam beramiz. Foydalanuvchilarga  Company-name litsenziyasi ostida litsenziyalangan ushbu suratlarni sodda, tez va samarali interfeys orqali xizmat ko‘rsatib taqdim etamiz. Barcha fotosuratlar yaxshi yorliqlangan, qidirish mumkin va kashf qilish sahifalarimiz orqali osongina topish mumkin.</p>
-          </ul>
-        </div>
-
-        {/* Footer */}
-        <Footer />
       </div>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
 
-export default About;
+export default License;

@@ -19,7 +19,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: oklch(51.1% 0.262 276.966);
   text-decoration: inherit;
 }
 a:hover {
