@@ -62,7 +62,7 @@ function License() {
 
         <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
           <ul className="list-disc list-inside space-y-3">
-            <p className='text-xl' >Suratlarni boshqa stok foto yoki fon rasmi platformalarida qayta tarqatmang yoki sotmang.</p>
+            <p className='text-xl' >Suratlarni boshqa stok foto yoki fon rasmi platformalarida qayta tarqatmang va sotmang.</p>
           </ul>
         </div>
 
