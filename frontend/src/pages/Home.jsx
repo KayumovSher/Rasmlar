@@ -19,6 +19,8 @@ function Home() {
   const [filteredImages, setFilteredImages] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetchImages();
@@ -27,6 +29,14 @@ function Home() {
   useEffect(() => {
     filterImages();
   }, [searchTerm, images]);
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [showModal]);
 
   const fetchImages = (categoryKey = "") => {
     setLoading(true);
@@ -39,7 +49,7 @@ function Home() {
       .then((res) => res.json())
       .then((data) => {
         setImages(data);
-        setFilteredImages(data); // Default filter
+        setFilteredImages(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -95,9 +105,7 @@ function Home() {
         </div>
       </div>
 
-
       <div className="relative isolate px-4 pt-10 lg:px-8 min-h-screen">
-        {/* Background blobs */}
         <BlobBackground position="top" />
         <BlobBackground position="bottom" />
 
@@ -126,20 +134,70 @@ function Home() {
             <p className="text-center text-gray-500 col-span-full">Rasmlar topilmadi.</p>
           ) : (
             filteredImages.map((img) => (
-              <div key={img.id} className="bg-white rounded overflow-hidden position-relative">
+              <div key={img.id} className="bg-white rounded overflow-hidden">
                 <img
                   src={img.image}
                   alt={img.title || "Image"}
-                  className="w-full object-cover h-auto rounded position-relative"
+                  className="w-full object-cover h-auto rounded cursor-pointer"
+                  onClick={() => {
+                    setSelectedImage(img);
+                    setShowModal(true);
+                  }}
                 />
               </div>
             ))
           )}
         </div>
       </div>
+
+      {/* Modal for selected image */}
+      {showModal && selectedImage && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center px-4">
+          <div className="bg-white rounded-lg p-12 max-w-xl w-125 relative text-center mb-0">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-1 right-1 text-gray-500 hover:text-gray-800 text-xl"
+              title="Yopish"
+            >
+            ✖️
+            </button>
+
+            {/* Image Preview */}
+            <img
+              src={selectedImage.image}
+              alt={selectedImage.title || "Rasm"}
+              className="w-full h-auto rounded mb-5 mx-auto"
+            />
+
+            {/* Download Button */}
+            <button
+              onClick={() => {
+                fetch(selectedImage.image)
+                  .then((res) => res.blob())
+                  .then((blob) => {
+                    const url = window.URL.createObjectURL(blob);
+                    const link = document.createElement("a");
+                    link.href = url;
+                    link.download = selectedImage.image.split("/").pop(); // Original filename
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+                  })
+                  .catch((err) => {
+                    console.error("Download error:", err);
+                  });
+              }}
+              className="bg-[#646cff] hover:bg-sky-700 text-white px-6 py-5 rounded-full font-semibold mb-0"
+            >
+              Rasmni yuklash
+            </button>
+          </div>
+        </div>
+      )}
+
     </>
   );
 }
-
 
 export default Home;
