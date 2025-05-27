@@ -109,12 +109,12 @@ export default function Navbar({ user, logout }) {
             </>
           )}
 
-          <Link
+          {/* <Link
             to="/contact"
             className="text-l font-semibold text-indigo-600 hover:text-sky-700"
           >
             Bog'lanish
-          </Link>
+          </Link> */}
 
           {/* Biz haqimizda Dropdown */}
           <div ref={dropdownRef} className="relative">

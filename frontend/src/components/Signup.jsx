@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import BlobBackground from "../components/BlobBackground";
 
 export default function Signup() {
   const [form, setForm] = useState({
@@ -27,26 +28,35 @@ export default function Signup() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 shadow-xl rounded-lg border">
-      <h2 className="text-2xl font-bold mb-4">Ro'yxatdan o'tish</h2>
-      {error && <div className="text-red-500 mb-2">{error}</div>}
-      <form onSubmit={handleSubmit} className="space-y-3">
-        {['first_name', 'last_name', 'email', 'username', 'password'].map(field => (
-          <input
-            key={field}
-            type={field === 'password' ? 'password' : 'text'}
-            name={field}
-            placeholder={field.replace('_', ' ').toUpperCase()}
-            onChange={handleChange}
-            className="w-full border px-3 py-2 rounded"
-            required
-          />
-        ))}
-        <button className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Ro'yxatdan o'tish</button>
-      </form>
-      <p className="mt-4 text-center">
-        Agar akkountingiz bo'lmasa <a href="/login" className="text-blue-600 underline">Kirish</a>
-      </p>
+    <div className="relative min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-sky-100 to-white">
+      <BlobBackground position="top" />
+      <BlobBackground position="bottom" />
+      <div className="w-full max-w-lg bg-white shadow-2xl rounded-2xl px-10 py-12 relative z-10">
+        <h2 className="text-3xl font-bold text-center text-sky-700 mb-6">Ro'yxatdan o'tish</h2>
+        {error && <div className="text-red-500 mb-4 text-center">{error}</div>}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {['first_name', 'last_name', 'email', 'username', 'password'].map(field => (
+            <input
+              key={field}
+              type={field === 'password' ? 'password' : 'text'}
+              name={field}
+              placeholder={field.replace('_', ' ').toUpperCase()}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-sky-500 text-black"
+              required
+            />
+          ))}
+          <button className="w-full bg-[#646cff] hover:bg-sky-700 text-white font-semibold py-3 rounded-full transition-all">
+            Ro'yxatdan o'tish
+          </button>
+        </form>
+        <p className="mt-6 text-center text-sm">
+          Akkountingiz bormi?{' '}
+          <a href="/login" className="text-sky-600 underline hover:text-sky-800">
+            Kirish
+          </a>
+        </p>
+      </div>
     </div>
   );
 }
