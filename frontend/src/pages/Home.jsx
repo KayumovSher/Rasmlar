@@ -127,7 +127,7 @@ function Home() {
         </div>
 
         {/* Image Gallery */}
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-7 mt-20">
+        <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-7 mt-20">
           {loading ? (
             <p className="text-center text-gray-500 col-span-full">Yuklanmoqda...</p>
           ) : filteredImages.length === 0 ? (

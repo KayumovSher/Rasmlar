@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Image
+from .models import Image, Download, Users
 
 class ImageSeralizer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
@@ -13,3 +13,10 @@ class ImageSeralizer(serializers.ModelSerializer):
         if request:
             return request.build_absolute_uri(obj.image.url)
         return obj.image.url
+
+class DownloadSerializer(serializers.ModelSerializer):
+    image = ImageSeralizer(read_only=True)
+
+    class Meta:
+        model = Download
+        fields = '__all__'

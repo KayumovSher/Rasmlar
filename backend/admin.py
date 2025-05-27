@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Image, Users
+from .models import Image, Users, Download
 from django.utils.html import format_html
 
 # Register your models here.
@@ -32,3 +32,9 @@ class ImageAdmin(admin.ModelAdmin):
         return form
     
 admin.site.register(Users)
+
+
+@admin.register(Download)
+class DownloadAdmin(admin.ModelAdmin):
+    list_display = ('user', 'image', 'downloaded_at')
+    list_filter = ('user', 'image')
