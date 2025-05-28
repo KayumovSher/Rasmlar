@@ -2,7 +2,6 @@ from django.contrib import admin
 from .models import Image, Users, Download
 from django.utils.html import format_html
 
-# Register your models here.
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'wallpaper_type', 'image_preview')
@@ -15,26 +14,21 @@ class ImageAdmin(admin.ModelAdmin):
         return "-"
     image_preview.short_description = 'Preview'
 
-    # Show wallpaper_type conditionally
-    def get_fields(self, request, obj=None):
-        fields = ['title', 'category', 'image']
-        if obj and obj.category == 'wallpaper':
-            fields.insert(2, 'wallpaper_type')
-        return fields
-
-    def get_readonly_fields(self, request, obj=None):
-        # make sure wallpaper_type is editable if needed
-        return []
-
-    # Make sure wallpaper_type shows on Add page when wallpaper selected
-    def get_form(self, request, obj=None, **kwargs):
-        form = super().get_form(request, obj, **kwargs)
-        return form
-    
-admin.site.register(Users)
-
-
 @admin.register(Download)
 class DownloadAdmin(admin.ModelAdmin):
-    list_display = ('user', 'image', 'downloaded_at')
-    list_filter = ('user', 'image')
+    list_display = ('user', 'image_title', 'category', 'downloaded_at')
+    list_filter = ('user', 'image__category')
+    search_fields = ('user__username', 'image__title')
+
+    def image_title(self, obj):
+        return obj.image.title
+    image_title.short_description = 'Image Title'
+
+    def category(self, obj):
+        return obj.image.category
+    category.short_description = 'Category'
+
+@admin.register(Users)
+class UsersAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'email')
+    search_fields = ('name', 'email')

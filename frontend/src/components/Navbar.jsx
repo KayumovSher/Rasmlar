@@ -7,24 +7,30 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 export default function Navbar({ user, logout }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+  const [profileDropdownOpen, setProfileDropdownOpen] = useState(false); // Profil dropdown uchun state
   const dropdownRef = useRef(null);
-  const location = useLocation(); // track route change
+  const profileDropdownRef = useRef(null); // Profil dropdown uchun ref
+  const location = useLocation();
 
-  // Close dropdown when clicking outside
+  // Tashqariga bosilganda "Biz haqimizda" dropdownni yopish
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setAboutDropdownOpen(false);
+      }
+      if (profileDropdownRef.current && !profileDropdownRef.current.contains(event.target)) {
+        setProfileDropdownOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Close dropdown when route changes
+  // Route o'zgarganda barcha dropdownlarni va mobil menyuni yopish
   useEffect(() => {
     setAboutDropdownOpen(false);
     setMobileMenuOpen(false);
+    setProfileDropdownOpen(false);
   }, [location]);
 
   return (
@@ -62,61 +68,7 @@ export default function Navbar({ user, logout }) {
             Bosh sahifa
           </Link>
 
-          {user ? (
-            <div className="relative group">
-              <button
-                className="rounded-full bg-indigo-600 text-white w-8 h-8 text-sm font-bold"
-                aria-label="User menu"
-              >
-                {user.username[0].toUpperCase()}
-              </button>
-              <div className="absolute hidden group-hover:block right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50 py-2">
-                <Link
-                  to="/profile"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  Akkount sahifasi
-                </Link>
-                <Link
-                  to="/edit-account"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  Akkountni tahrirlash
-                </Link>
-                <button
-                  onClick={logout}
-                  className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  type="button"
-                >
-                  Akkountdan chiqish
-                </button>
-              </div>
-            </div>
-          ) : (
-            <>
-              <Link
-                to="/signup"
-                className="text-l font-semibold text-indigo-600 hover:text-sky-700"
-              >
-                Ro'yxatdan o'tish
-              </Link>
-              <Link
-                to="/login"
-                className="text-l font-semibold text-indigo-600 hover:text-sky-700"
-              >
-                Kirish
-              </Link>
-            </>
-          )}
-
-          {/* <Link
-            to="/contact"
-            className="text-l font-semibold text-indigo-600 hover:text-sky-700"
-          >
-            Bog'lanish
-          </Link> */}
-
-          {/* Biz haqimizda Dropdown */}
+          {/* Biz haqimizda dropdown */}
           <div ref={dropdownRef} className="relative">
             <button
               onClick={() => setAboutDropdownOpen((prev) => !prev)}
@@ -155,6 +107,58 @@ export default function Navbar({ user, logout }) {
               </div>
             )}
           </div>
+
+          {/* Foydalanuvchi holatiga qarab nav */}
+          {user ? (
+            // Foydalanuvchi kirdi — Profil ikonasi va dropdown
+            <div ref={profileDropdownRef} className="relative">
+              <button
+                onClick={() => setProfileDropdownOpen((prev) => !prev)}
+                className="rounded-full bg-indigo-600 text-white w-8 h-8 text-sm font-bold flex items-center justify-center"
+                aria-label="User menu"
+                aria-expanded={profileDropdownOpen}
+              >
+                {user.username[0].toUpperCase()}
+              </button>
+
+              {profileDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50 py-2">
+                  <Link
+                    to="/editprofile"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={() => setProfileDropdownOpen(false)}
+                  >
+                    Akkountni tahrirlash
+                  </Link>
+                  <Link
+                    to="/profile"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={() => setProfileDropdownOpen(false)}
+                  >
+                    Akkount sahifasiga kirish
+                  </Link>
+                  <button
+                    onClick={() => {
+                      logout();
+                      setProfileDropdownOpen(false);
+                    }}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    type="button"
+                  >
+                    Akkountdan chiqish
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            // Foydalanuvchi kirmagan — faqat Kirish link
+            <Link
+              to="/login"
+              className="text-l font-semibold text-indigo-600 hover:text-sky-700"
+            >
+              Kirish
+            </Link>
+          )}
         </div>
       </nav>
 
@@ -189,18 +193,15 @@ export default function Navbar({ user, logout }) {
                 <Link
                   to="/"
                   className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Bosh sahifa
                 </Link>
-                <Link
-                  to="/contact"
-                  className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
-                >
-                  Bog'lanish
-                </Link>
+
                 <Link
                   to="/about"
                   className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Xizmat ko'rsatish
                 </Link>
@@ -226,29 +227,20 @@ export default function Navbar({ user, logout }) {
                         logout();
                         setMobileMenuOpen(false);
                       }}
-                      className="block w-full text-left px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+                      className="w-full text-left px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
                       type="button"
                     >
                       Akkountdan chiqish
                     </button>
                   </>
                 ) : (
-                  <>
-                    <Link
-                      to="/signup"
-                      className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Ro'yxatdan o'tish
-                    </Link>
-                    <Link
-                      to="/login"
-                      className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Kirish
-                    </Link>
-                  </>
+                  <Link
+                    to="/login"
+                    className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Kirish
+                  </Link>
                 )}
               </div>
             </div>

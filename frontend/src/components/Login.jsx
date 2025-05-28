@@ -24,19 +24,19 @@ export default function Login() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-sky-100 to-white">
+    <div className="relative min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-indigo-100 to-white">
       <BlobBackground position="top" />
       <BlobBackground position="bottom" />
       <div className="w-full max-w-lg bg-white shadow-2xl rounded-2xl px-10 py-12 relative z-10">
         <h2 className="text-3xl font-bold text-center text-sky-700 mb-6">Kirish</h2>
         {error && <div className="text-red-500 mb-4 text-center">{error}</div>}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-10">
           <input
             type="text"
             name="username"
             placeholder="USERNAME"
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-sky-500 text-black"
+            className="w-full px-4 py-2 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black"
             required
           />
           <input
@@ -44,14 +44,14 @@ export default function Login() {
             name="password"
             placeholder="PASSWORD"
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-sky-500 text-black"
+            className="w-full px-4 py-2 border border-gray-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black"
             required
           />
           <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-full transition-all">
             Kirish
           </button>
         </form>
-        <p className="mt-6 text-center text-sm">
+        <p className="mt-8 text-center text-sm text-black">
           Akkountingiz yo‘qmi?{' '}
           <a href="/signup" className="text-sky-600 underline hover:text-sky-800">
             Ro‘yxatdan o‘ting

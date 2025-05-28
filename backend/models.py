@@ -10,7 +10,10 @@ def upload_to_category(instance, filename):
 class Image(models.Model):
     CATEGORY_CHOICES = [
         ('animals', 'Animals'),
+        ('art', 'Art'),
         ('buildings', 'Buildings'),
+        ('cars', 'Cars'),
+        ('darkness', 'Darkness'),
         ('foods', 'Foods'),
         ('nature', 'Nature'),
         ('people', 'People'),

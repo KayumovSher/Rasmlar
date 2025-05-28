@@ -4,7 +4,10 @@ import BlobBackground from "../components/BlobBackground";
 const categories = [
   { key: "", label: "Hammasi" },
   { key: "animals", label: "Hayvonlar" },
+  { key: "art", label: "San'at" },
   { key: "buildings", label: "Binolar" },
+  { key: "cars", label: "Avtomobillar" },
+  { key: "darkness", label: "Zulmat" },
   { key: "foods", label: "Taomlar" },
   { key: "nature", label: "Tabiat" },
   { key: "people", label: "Odamlar" },
@@ -110,12 +113,12 @@ function Home() {
         <BlobBackground position="bottom" />
 
         {/* Category Buttons */}
-        <div className="mb-6 flex flex-wrap justify-center gap-4">
+        <div className="mb-5 flex flex-wrap justify-center gap-2">
           {categories.map(({ key, label }) => (
             <button
               key={key}
               onClick={() => filterByCategory(key)}
-              className={`px-4 py-2 rounded font-semibold ${
+              className={`px-3 py-1.5 text-sm rounded font-medium transition-all duration-200 ${
                 activeCategory === key
                   ? "bg-[#646cff] text-white"
                   : "bg-[#9089fc] text-white hover:bg-sky-700"

@@ -28,7 +28,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-sky-100 to-white">
+    <div className="relative min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-indigo-100 to-white">
       <BlobBackground position="top" />
       <BlobBackground position="bottom" />
       <div className="w-full max-w-lg bg-white shadow-2xl rounded-2xl px-10 py-12 relative z-10">
