@@ -98,12 +98,12 @@ export default function Navbar({ user, logout }) {
                 >
                   Litsenziya
                 </Link>
-                <Link
+                {/* <Link
                   to="/#"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 >
                   Maqsad
-                </Link>
+                </Link> */}
               </div>
             )}
           </div>
@@ -216,13 +216,13 @@ export default function Navbar({ user, logout }) {
                       Akkount sahifasi
                     </Link>
                     <Link
-                      to="/edit-account"
+                      to="/editprofile"
                       className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Akkountni tahrirlash
                     </Link>
-                    <button
+                    <Link
                       onClick={() => {
                         logout();
                         setMobileMenuOpen(false);
@@ -231,7 +231,7 @@ export default function Navbar({ user, logout }) {
                       type="button"
                     >
                       Akkountdan chiqish
-                    </button>
+                    </Link>
                   </>
                 ) : (
                   <Link

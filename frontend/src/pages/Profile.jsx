@@ -30,8 +30,8 @@ const Profile = () => {
   }
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-semibold mb-4">My Downloaded Images</h2>
+    <div className="p-6 text-sky-700">
+      <h2 className="text-2xl font-semibold mb-4 mt-50">My Downloaded Images</h2>
       {images.length === 0 ? (
         <p>You haven't downloaded any images yet.</p>
       ) : (

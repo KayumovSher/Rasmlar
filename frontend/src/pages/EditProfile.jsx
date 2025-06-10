@@ -53,10 +53,10 @@ function EditProfile({ user, setUser }) {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 mt-10">
-      <h2 className="text-2xl mb-4">Akkountni tahrirlash</h2>
+    <div className="max-w-md mx-auto p-4 mt-30">
+      <h2 className="text-5xl mb-20 text-sky-700">Akkountni tahrirlash</h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 text-black">
         <input
           type="text"
           name="first_name"
