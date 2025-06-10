@@ -18,6 +18,7 @@ class Image(models.Model):
         ('nature', 'Nature'),
         ('people', 'People'),
         ('sertificates', 'Sertificates'),
+        ('sport', 'Sport'),
         ('technology', 'Technology'),
         ('wallpaper', 'Wallpaper'),
         

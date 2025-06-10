@@ -12,6 +12,7 @@ const categories = [
   { key: "nature", label: "Tabiat" },
   { key: "people", label: "Odamlar" },
   { key: "sertificates", label: "Sertifikat" },
+  { key: "sport", label: "Sport" },
   { key: "technology", label: "Texnologiya" },
   { key: "wallpaper", label: "Fon" },
 ];
