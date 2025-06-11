@@ -10,7 +10,7 @@ function License() {
       {/* <BlobBackground position="bottom" /> */}
 
       {/* Main Content */}
-      <div className="relative isolate pt-36 mx-auto text-center">
+      <div className="relative isolate px-150 pt-36 mx-auto text-center">
 
         {/* Section with background image */}
         <div
