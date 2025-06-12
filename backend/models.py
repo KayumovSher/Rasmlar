@@ -56,4 +56,4 @@ class Download(models.Model):
     downloaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.image.title}"
+        return f"{self.user.username} downloaded {self.image.title}"

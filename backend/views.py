@@ -1,3 +1,4 @@
+from datetime import timezone
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth import authenticate
@@ -10,7 +11,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
-from .serializers import ImageSeralizer, UserSerializer
+from .serializers import ImageSeralizer, UserSerializer, DownloadSerializer
 
 from .models import Image, Download
 
@@ -94,33 +95,32 @@ def logout_user(request):
     return Response(status=status.HTTP_200_OK)
 
 # ✅ 6. Save download if user is authenticated
+import logging
+logger = logging.getLogger(__name__)
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def record_download(request):
     image_id = request.data.get('image_id')
-    if not image_id:
-        return Response({'error': 'Image ID is required.'}, status=status.HTTP_400_BAD_REQUEST)
-
+    logger.info(f"User: {request.user} is downloading image_id: {image_id}")
     try:
         image = Image.objects.get(id=image_id)
+        download = Download.objects.create(user=request.user, image=image)
+        logger.info(f"Download created: {download}")
+        return Response({'message': 'Download recorded.'}, status=201)
     except Image.DoesNotExist:
-        return Response({'error': 'Image not found.'}, status=status.HTTP_404_NOT_FOUND)
+        logger.error('Image not found.')
+        return Response({'error': 'Image not found.'}, status=404)
 
-    Download.objects.create(user=request.user, image=image)
-    return Response({'message': 'Download recorded.'}, status=status.HTTP_201_CREATED)
+
 
 # ✅ 7. Return user's download history (profile page)
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def user_downloads(request):
-    downloads = Download.objects.filter(user=request.user).select_related('image')
-    data = [{
-        'title': d.image.title,
-        'category': d.image.category,
-        'downloaded_at': d.downloaded_at,
-        'image_url': request.build_absolute_uri(d.image.image.url)
-    } for d in downloads]
-    return Response(data)
+    downloads = Download.objects.filter(user=request.user).select_related('image').order_by('-downloaded_at')
+    serializer = DownloadSerializer(downloads, many=True, context={'request': request})
+    return Response(serializer.data)
 
 # ✅ 8. Update user profile (name/email)
 @api_view(['PUT'])

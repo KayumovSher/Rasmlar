@@ -10,10 +10,10 @@ urlpatterns = [
     path('logout/', views.logout_user, name='logout'),
 
     # 👤 Profile
-    path('profile/', views.get_or_update_profile, name='get_or_update_profile'),  # GET/PUT
+    path('user/profile/', views.get_or_update_profile, name='get_or_update_profile'),  # GET/PUT
+    path('user/downloads/', views.user_downloads, name='user_downloads'),              # 👈 Clearer path
 
     # 📥 Downloads
-    path('downloads/', views.user_downloads, name='user_downloads'),
     path('record-download/', views.record_download, name='record_download'),
 
     # 🖼️ Images

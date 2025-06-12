@@ -176,22 +176,37 @@ function Home() {
 
             {/* Download Button */}
             <button
-              onClick={() => {
-                fetch(selectedImage.image)
-                  .then((res) => res.blob())
-                  .then((blob) => {
-                    const url = window.URL.createObjectURL(blob);
-                    const link = document.createElement("a");
-                    link.href = url;
-                    link.download = selectedImage.image.split("/").pop(); // Original filename
-                    document.body.appendChild(link);
-                    link.click();
-                    link.remove();
-                  })
-                  .catch((err) => {
-                    console.error("Download error:", err);
-                  });
+              onClick={async () => {
+                try {
+                  const token = localStorage.getItem("access");
+              
+                  // ✅ If logged in, record download in backend
+                  if (token) {
+                    await fetch("http://127.0.0.1:8000/api/record-download/", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                      },
+                      body: JSON.stringify({ image_id: selectedImage.id }),
+                    });
+                  }
+              
+                  // ✅ Trigger browser download
+                  const response = await fetch(selectedImage.image);
+                  const blob = await response.blob();
+                  const url = window.URL.createObjectURL(blob);
+                  const link = document.createElement("a");
+                  link.href = url;
+                  link.download = selectedImage.image.split("/").pop(); // original file name
+                  document.body.appendChild(link);
+                  link.click();
+                  link.remove();
+                } catch (error) {
+                  console.error("Download error:", error);
+                }
               }}
+              
               className="bg-[#646cff] hover:bg-sky-700 text-white px-6 py-5 rounded-full font-semibold mb-0"
             >
               Rasmni yuklash

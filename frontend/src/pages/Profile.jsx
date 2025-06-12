@@ -9,7 +9,7 @@ const Profile = () => {
     const fetchDownloads = async () => {
       try {
         const token = localStorage.getItem('access');
-        const response = await axios.get('http://127.0.0.1:8000/api/user/downloads/', {
+        const response = await axios.get('http://127.0.0.1:8000/api/downloads/', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -26,20 +26,34 @@ const Profile = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center mt-10">Loading...</div>;
+    return <div className="text-center mt-10">Yuklanmoqda...</div>;
   }
 
   return (
-    <div className="p-6 text-sky-700">
-      <h2 className="text-2xl font-semibold mb-4 mt-50">My Downloaded Images</h2>
+    <div className="p-56 text-sky-700">
+      <h2 className="text-2xl font-semibold mb-4">Mening yuklangan rasmlarim</h2>
       {images.length === 0 ? (
-        <p>You haven't downloaded any images yet.</p>
+        <p>Hozircha hech qanday rasm yuklanmagan.</p>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {images.map(image => (
-            <div key={image.id} className="rounded overflow-hidden shadow">
-              <img src={image.image} alt={image.title} className="w-full h-48 object-cover" />
-              <div className="p-2 text-center">{image.title}</div>
+          {images.map((image, index) => (
+            <div key={index} className="rounded overflow-hidden shadow">
+              <img
+                src={image.image_url}
+                alt={image.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-2 text-center">
+                <p className="font-semibold">{image.title}</p>
+                <p className="text-xs text-gray-500">{new Date(image.downloaded_at).toLocaleString()}</p>
+              </div>
+              <a
+                href={image.image_url}
+                download
+                className="block text-center bg-blue-600 text-white py-1 rounded hover:bg-blue-700"
+              >
+                Qayta yuklab olish
+              </a>
             </div>
           ))}
         </div>

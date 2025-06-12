@@ -18,11 +18,22 @@ class ImageSeralizer(serializers.ModelSerializer):
 
 # ✅ 2. Download Serializer
 class DownloadSerializer(serializers.ModelSerializer):
-    image = ImageSeralizer(read_only=True)
+    title = serializers.CharField(source='image.title')
+    category = serializers.CharField(source='image.category')
+    image = serializers.SerializerMethodField()
+    downloaded_at = serializers.DateTimeField(format='%Y-%m-%d %H:%M')
 
     class Meta:
         model = Download
-        fields = ['id', 'image', 'downloaded_at']  # You can customize fields here
+        fields = ['id', 'title', 'category', 'image', 'downloaded_at']
+
+    def get_image(self, obj):
+        request = self.context.get('request')
+        if obj.image and obj.image.image:
+            return request.build_absolute_uri(obj.image.image.url)
+        return None
+
+
 
 # ✅ 3. User Serializer (for showing/updating user info)
 class UserSerializer(serializers.ModelSerializer):
