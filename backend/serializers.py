@@ -18,10 +18,10 @@ class ImageSeralizer(serializers.ModelSerializer):
 
 # ✅ 2. Download Serializer
 class DownloadSerializer(serializers.ModelSerializer):
-    title = serializers.CharField(source='image.title')
-    category = serializers.CharField(source='image.category')
-    image = serializers.SerializerMethodField()
-    downloaded_at = serializers.DateTimeField(format='%Y-%m-%d %H:%M')
+    title = serializers.CharField(source='image.title')                  # ✅ image title
+    category = serializers.CharField(source='image.category')            # ✅ image category
+    image = serializers.SerializerMethodField()                          # ✅ full image URL
+    downloaded_at = serializers.DateTimeField(format='%Y-%m-%d %H:%M')   # ✅ nicely formatted
 
     class Meta:
         model = Download

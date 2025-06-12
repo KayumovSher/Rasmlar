@@ -30,27 +30,28 @@ const Profile = () => {
   }
 
   return (
-    <div className="p-56 text-sky-700">
-      <h2 className="text-2xl font-semibold mb-4">Mening yuklangan rasmlarim</h2>
+    <div className="p-46 text-indigo-600">
+      <h2 className="text-5xl font-semibold text-center mb-14">Mening yuklangan rasmlarim</h2>
       {images.length === 0 ? (
         <p>Hozircha hech qanday rasm yuklanmagan.</p>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {images.map((image, index) => (
-            <div key={index} className="rounded overflow-hidden shadow">
+            <div key={index} className="rounded overflow-hidden shadow text-center">
               <img
-                src={image.image_url}
+                src={image.image}
                 alt={image.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-auto object-cover"
               />
-              <div className="p-2 text-center">
-                <p className="font-semibold">{image.title}</p>
-                <p className="text-xs text-gray-500">{new Date(image.downloaded_at).toLocaleString()}</p>
-              </div>
+
+              <p className="font-semibold">{image.title}</p>
+              <p className="text-sm text-gray-600">{image.category}</p>
+              <p className="text-xs text-gray-400">Yuklangan vaqti: {image.downloaded_at}</p>
+
               <a
-                href={image.image_url}
+                href={image.image}
                 download
-                className="block text-center bg-blue-600 text-white py-1 rounded hover:bg-blue-700"
+                className="text-blue-500 hover:underline mt-2 inline-block"
               >
                 Qayta yuklab olish
               </a>
