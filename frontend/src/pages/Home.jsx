@@ -198,7 +198,7 @@ function Home() {
                   const url = window.URL.createObjectURL(blob);
                   const link = document.createElement("a");
                   link.href = url;
-                  link.download = selectedImage.image.split("/").pop(); // original file name
+                  link.download = selectedImage.image.split("http://localhost:5173/user/downloads/").pop(); // original file name
                   document.body.appendChild(link);
                   link.click();
                   link.remove();

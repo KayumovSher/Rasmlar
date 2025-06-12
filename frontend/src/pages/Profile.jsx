@@ -8,10 +8,10 @@ const Profile = () => {
   useEffect(() => {
     const fetchDownloads = async () => {
       try {
-        const token = localStorage.getItem('access');
-        const response = await axios.get('http://127.0.0.1:8000/api/downloads/', {
+        const token = localStorage.getItem('token');
+        const response = await axios.get('http://127.0.0.1:8000/api/user/downloads/', {
           headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Token ${token}`
           }
         });
         setImages(response.data);

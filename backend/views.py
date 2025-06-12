@@ -119,6 +119,7 @@ def record_download(request):
 @permission_classes([IsAuthenticated])
 def user_downloads(request):
     downloads = Download.objects.filter(user=request.user).select_related('image').order_by('-downloaded_at')
+    images = [download.image for download in downloads]
     serializer = DownloadSerializer(downloads, many=True, context={'request': request})
     return Response(serializer.data)
 
