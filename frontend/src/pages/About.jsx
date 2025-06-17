@@ -69,6 +69,16 @@ function About() {
           </ul>
         </div>
 
+        {/* About the Creator */}
+        <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
+            {/* Decorative Backgrounds */}
+            <BlobBackground position="top" />
+          <h2 className="text-4xl font-semibold text-sky-700">Loyiha asoschisi haqida</h2>
+          <ul className="list-disc list-inside space-y-3">
+            <p className='text-xl' >"Ushbu loyiha IT-mutaxassis va veb-muhandis Shermuhammad Qayumov tomonidan ishlab chiqilgan. Kayumov.dev saytida koʻproq loyihalarga tashrif buyuring."</p>
+          </ul>
+        </div>
+
         {/* Footer */}
         <Footer />
       </div>

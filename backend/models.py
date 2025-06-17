@@ -16,11 +16,11 @@ class Image(models.Model):
         ('darkness', 'Darkness'),
         ('foods', 'Foods'),
         ('nature', 'Nature'),
+        ('pc', 'PC'),
         ('people', 'People'),
         ('sertificates', 'Sertificates'),
         ('sport', 'Sport'),
         ('technology', 'Technology'),
-        ('wallpaper', 'Wallpaper'),
         
     ]
     WALLPAPER_TYPE_CHOICES = [

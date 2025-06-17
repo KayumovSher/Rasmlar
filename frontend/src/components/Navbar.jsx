@@ -39,11 +39,13 @@ export default function Navbar({ user, logout }) {
         {/* Logo */}
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
-            <img
+            {/* <img
               className="h-8 w-auto"
               src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
               alt="logo"
-            />
+            /> */}
+            
+            <p>KayumovDev</p>
           </Link>
         </div>
 

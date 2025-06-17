@@ -10,11 +10,11 @@ const categories = [
   { key: "darkness", label: "Zulmat" },
   { key: "foods", label: "Taomlar" },
   { key: "nature", label: "Tabiat" },
+  { key: "pc", label: "Kompyuter" },
   { key: "people", label: "Odamlar" },
   { key: "sertificates", label: "Sertifikat" },
   { key: "sport", label: "Sport" },
   { key: "technology", label: "Texnologiya" },
-  { key: "wallpaper", label: "Fon" },
 ];
 
 function Home() {
