@@ -7,7 +7,6 @@ function About() {
     <div className="relative">
       {/* Decorative Backgrounds */}
       <BlobBackground position="top" />
-      {/* <BlobBackground position="bottom" /> */}
 
       {/* Main Content */}
       <div className="relative isolate pt-34 mx-auto text-center">
@@ -23,7 +22,7 @@ function About() {
           }}
         >
           {/* Overlay for readability */}
-          <div className="bg-indigo-600/15 px-25 py-55">
+          <div className="bg-indigo-600/15 px-25 py-70">
             <h1 className="text-7xl font-bold mb-4">Biz haqimizda</h1>
             <p className="text-2xl">
                 Ushbu sayt sizga bepul, litsenziyaga ega, yuqori sifatdagi suratlarni toifalar bo‘yicha taqdim etish, Company-Name butun dunyodagi millionlab ijodkorlarga chiroyli mahsulotlar va dizaynlarni osongina yaratishda yordam beradi.
@@ -79,9 +78,10 @@ function About() {
           </ul>
         </div>
 
-        {/* Footer */}
-        <Footer />
+        
       </div>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

@@ -110,9 +110,7 @@ export default function Navbar({ user, logout }) {
             )}
           </div>
 
-          {/* Foydalanuvchi holatiga qarab nav */}
-          {user ? (
-            // Foydalanuvchi kirdi — Profil ikonasi va dropdown
+          {/* {user ? (
             <div ref={profileDropdownRef} className="relative">
               <button
                 onClick={() => setProfileDropdownOpen((prev) => !prev)}
@@ -160,7 +158,7 @@ export default function Navbar({ user, logout }) {
             >
               Kirish
             </Link>
-          )}
+          )} */}
         </div>
       </nav>
 

@@ -132,26 +132,28 @@ function Home() {
         </div>
 
         {/* Image Gallery */}
-        <div className="columns-2 gap-4 sm:columns-3 sm:gap-8 mt-20">
-          {loading ? (
-            <p className="text-center text-gray-500 col-span-full">Yuklanmoqda...</p>
-          ) : filteredImages.length === 0 ? (
-            <p className="text-center text-gray-500 col-span-full">Rasmlar topilmadi.</p>
-          ) : (
-            filteredImages.map((img) => (
-              <div key={img.id} className="rounded overflow-hidden mb-8">
-                <img
-                  src={img.image}
-                  alt={img.title || "Image"}
-                  className="w-full object-cover h-auto rounded-3xl cursor-pointer"
-                  onClick={() => {
-                    setSelectedImage(img);
-                    setShowModal(true);
-                  }}
-                />
-              </div>
-            ))
-          )}
+        <div className="px-4 sm:px-30">
+          <div className="columns-2 gap-4 sm:columns-3 sm:gap-8 mt-20">
+            {loading ? (
+              <p className="text-center text-gray-500 col-span-full">Yuklanmoqda...</p>
+            ) : filteredImages.length === 0 ? (
+              <p className="text-center text-gray-500 col-span-full">Rasmlar topilmadi.</p>
+            ) : (
+              filteredImages.map((img) => (
+                <div key={img.id} className="rounded overflow-hidden mb-8">
+                  <img
+                    src={img.image}
+                    alt={img.title || "Image"}
+                    className="w-full object-cover h-auto rounded-3xl cursor-pointer"
+                    onClick={() => {
+                      setSelectedImage(img);
+                      setShowModal(true);
+                    }}
+                  />
+                </div>
+              ))
+            )}
+          </div>
         </div>
       </div>
 
