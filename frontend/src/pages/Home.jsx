@@ -12,6 +12,7 @@ const categories = [
   { key: "nature", label: "Tabiat" },
   { key: "pc", label: "Kompyuter" },
   { key: "people", label: "Odamlar" },
+  { key: "phone", label: "Telefon" },
   { key: "sertificates", label: "Sertifikat" },
   { key: "sport", label: "Sport" },
   { key: "technology", label: "Texnologiya" },
@@ -82,7 +83,7 @@ function Home() {
     <>
       {/* Section with background image */}
       <div
-        className="relative rounded-lg text-white"
+        className="relative rounded-lg h-200 text-white"
         style={{
           backgroundImage: "url('/Home/Home.png')",
           backgroundSize: "cover",
@@ -91,9 +92,9 @@ function Home() {
         }}
       >
         {/* Overlay */}
-        <div className="bg-sky-600/20 backdrop-brightness-85 w-full min-h-[550px] px-6 py-10 flex flex-col items-center justify-center text-center space-y-6 z-10 relative">
+        <div className="backdrop-brightness-100 w-full min-h-[550px] px-6 py-10 flex flex-col items-center justify-center text-center space-y-6 z-10 relative">
           <h1 className="text-4xl lg:text-4xl font-bold leading-snug">
-            Ijodkorlar tomonidan baham ko'rilgan eng yaxshi bepul suratlar
+            Ijodkorlar tomonidan baham ko'rilgan eng yaxshi suratlar
           </h1>
 
           <div className="relative w-full max-w-xl z-10">
@@ -131,18 +132,18 @@ function Home() {
         </div>
 
         {/* Image Gallery */}
-        <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-7 mt-20">
+        <div className="columns-2 gap-4 sm:columns-3 sm:gap-8 mt-20">
           {loading ? (
             <p className="text-center text-gray-500 col-span-full">Yuklanmoqda...</p>
           ) : filteredImages.length === 0 ? (
             <p className="text-center text-gray-500 col-span-full">Rasmlar topilmadi.</p>
           ) : (
             filteredImages.map((img) => (
-              <div key={img.id} className="bg-white rounded overflow-hidden">
+              <div key={img.id} className="rounded overflow-hidden mb-8">
                 <img
                   src={img.image}
                   alt={img.title || "Image"}
-                  className="w-full object-cover h-auto rounded cursor-pointer"
+                  className="w-full object-cover h-auto rounded-3xl cursor-pointer"
                   onClick={() => {
                     setSelectedImage(img);
                     setShowModal(true);

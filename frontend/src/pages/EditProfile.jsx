@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import BlobBackground from "../components/BlobBackground";
 
 function EditProfile({ user, setUser }) {
   const [formData, setFormData] = useState({
@@ -54,6 +55,8 @@ function EditProfile({ user, setUser }) {
 
   return (
     <div className="max-w-md mx-auto p-4 mt-30">
+      <BlobBackground position="top" />
+      <BlobBackground position="bottom" />
       <h2 className="text-5xl mb-20 text-sky-700">Akkountni tahrirlash</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4 text-black">

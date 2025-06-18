@@ -18,6 +18,7 @@ class Image(models.Model):
         ('nature', 'Nature'),
         ('pc', 'PC'),
         ('people', 'People'),
+        ('phone', 'Phone'),
         ('sertificates', 'Sertificates'),
         ('sport', 'Sport'),
         ('technology', 'Technology'),

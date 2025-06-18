@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import BlobBackground from "../components/BlobBackground";
 
 const Profile = () => {
   const [images, setImages] = useState([]);
@@ -31,6 +32,8 @@ const Profile = () => {
 
   return (
     <div className="p-46 text-indigo-600">
+      <BlobBackground position="top" />
+      <BlobBackground position="bottom" />
       <h2 className="text-5xl font-semibold text-center mb-14">Mening yuklangan rasmlarim</h2>
       {images.length === 0 ? (
         <p>Hozircha hech qanday rasm yuklanmagan.</p>
