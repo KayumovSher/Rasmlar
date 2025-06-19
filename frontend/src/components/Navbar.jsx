@@ -38,16 +38,15 @@ export default function Navbar({ user, logout }) {
       <nav className="flex items-center justify-between p-6 lg:px-10">
         {/* Logo */}
         <div className="flex lg:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5">
-            {/* <img
-              className="h-8 w-auto"
-              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-              alt="logo"
-            /> */}
-            
-            <p>KayumovDev</p>
+          <Link to="/" className="h-10 w-30">
+          <img
+            className=""
+            src="/Navbar/Rasmlar_logo.png"
+            alt="Rasmlar logo"
+          />
           </Link>
         </div>
+        
 
         {/* Mobile menu icon */}
         <div className="flex lg:hidden">

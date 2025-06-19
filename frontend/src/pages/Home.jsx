@@ -132,7 +132,7 @@ function Home() {
         </div>
 
         {/* Image Gallery */}
-        <div className="px-4 sm:px-30">
+        <div className="px-4 sm:px-20">
           <div className="columns-2 gap-4 sm:columns-3 sm:gap-8 mt-20">
             {loading ? (
               <p className="text-center text-gray-500 col-span-full">Yuklanmoqda...</p>
