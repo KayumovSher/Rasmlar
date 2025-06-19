@@ -89,13 +89,13 @@ export default function Navbar({ user, logout }) {
               <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50 py-2">
                 <Link
                   to="/about"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm text-indigo-600 hover:bg-sky-700"
                 >
                   Biz haqimizda
                 </Link>
                 <Link
                   to="/license"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm text-indigo-600 hover:bg-sky-700"
                 >
                   Litsenziya
                 </Link>
@@ -170,13 +170,13 @@ export default function Navbar({ user, logout }) {
       >
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <Link to="/" className="-m-1.5 p-1.5">
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                alt="logo"
-              />
-            </Link>
+          <Link to="/" className="h-10 w-30">
+          <img
+            className=""
+            src="/Navbar/Rasmlar_logo.png"
+            alt="Rasmlar logo"
+          />
+          </Link>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -191,7 +191,7 @@ export default function Navbar({ user, logout }) {
               <div className="space-y-2 py-6 text-center">
                 <Link
                   to="/"
-                  className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+                  className="block px-3 py-2 text-base font-semibold text-indigo-600 hover:bg-sky-700"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Bosh sahifa
@@ -205,7 +205,7 @@ export default function Navbar({ user, logout }) {
                   Xizmat ko'rsatish
                 </Link>
 
-                {user ? (
+                {/* {user ? (
                   <>
                     <Link
                       to="/profile"
@@ -240,7 +240,7 @@ export default function Navbar({ user, logout }) {
                   >
                     Kirish
                   </Link>
-                )}
+                )} */}
               </div>
             </div>
           </div>
