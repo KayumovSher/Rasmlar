@@ -93,8 +93,9 @@ function Home() {
       >
         {/* Overlay */}
         <div className="backdrop-brightness-100 w-full min-h-[550px] px-6 py-10 flex flex-col items-center justify-center text-center space-y-6 z-10 relative">
-          <h1 className="text-4xl lg:text-4xl font-bold leading-snug">
-            Ijodkorlar tomonidan baham ko'rilgan eng yaxshi suratlar
+          <h1 className="text-2xl lg:text-2xl font-bold leading-snug">
+          Vizual tasvirlar uchun internet manbasi.
+          Hamma joyda ijodkorlar tomonidan quvvatlanadi.
           </h1>
 
           <div className="relative w-full max-w-xl z-10">
@@ -103,7 +104,7 @@ function Home() {
               placeholder="Suratlarni yoki kategoriyani qidiring..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="z-10 w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 text-black bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+              className="z-10 w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 text-black bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
             />
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
           </div>
@@ -122,8 +123,8 @@ function Home() {
               onClick={() => filterByCategory(key)}
               className={`px-3 py-1.5 text-sm rounded font-medium transition-all duration-200 ${
                 activeCategory === key
-                  ? "bg-[#646cff] text-white"
-                  : "bg-[#9089fc] text-white hover:bg-sky-700"
+                  ? "bg-sky-700 text-white"
+                  : "bg-indigo-400 text-white hover:bg-sky-700"
               }`}
             >
               {label}

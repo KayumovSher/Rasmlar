@@ -64,7 +64,7 @@ export default function Navbar({ user, logout }) {
         <div className="hidden lg:flex lg:gap-x-10 items-center">
           <Link
             to="/"
-            className="text-l font-semibold text-indigo-600 hover:text-sky-700"
+            className="text-l font-semibold text-indigo-500 hover:text-sky-700"
           >
             Bosh sahifa
           </Link>
@@ -73,7 +73,7 @@ export default function Navbar({ user, logout }) {
           <div ref={dropdownRef} className="relative">
             <button
               onClick={() => setAboutDropdownOpen((prev) => !prev)}
-              className="flex items-center gap-1 text-l font-semibold text-indigo-600 hover:text-sky-700"
+              className="flex items-center gap-1 text-l font-semibold text-indigo-500 hover:text-sky-700"
               aria-expanded={aboutDropdownOpen}
               aria-haspopup="true"
             >
@@ -89,13 +89,13 @@ export default function Navbar({ user, logout }) {
               <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-md z-50 py-2">
                 <Link
                   to="/about"
-                  className="block px-4 py-2 text-sm text-indigo-600 hover:bg-sky-700"
+                  className="block px-4 py-2 text-sm text-indigo-500 "
                 >
                   Biz haqimizda
                 </Link>
                 <Link
                   to="/license"
-                  className="block px-4 py-2 text-sm text-indigo-600 hover:bg-sky-700"
+                  className="block px-4 py-2 text-sm text-indigo-500"
                 >
                   Litsenziya
                 </Link>
@@ -113,7 +113,7 @@ export default function Navbar({ user, logout }) {
             <div ref={profileDropdownRef} className="relative">
               <button
                 onClick={() => setProfileDropdownOpen((prev) => !prev)}
-                className="rounded-full bg-indigo-600 text-white w-8 h-8 text-sm font-bold flex items-center justify-center"
+                className="rounded-full bg-indigo-500 text-white w-8 h-8 text-sm font-bold flex items-center justify-center"
                 aria-label="User menu"
                 aria-expanded={profileDropdownOpen}
               >
@@ -153,7 +153,7 @@ export default function Navbar({ user, logout }) {
             // Foydalanuvchi kirmagan — faqat Kirish link
             <Link
               to="/login"
-              className="text-l font-semibold text-indigo-600 hover:text-sky-700"
+              className="text-l font-semibold text-indigo-500 hover:text-sky-700"
             >
               Kirish
             </Link>
@@ -191,7 +191,7 @@ export default function Navbar({ user, logout }) {
               <div className="space-y-2 py-6 text-center">
                 <Link
                   to="/"
-                  className="block px-3 py-2 text-base font-semibold text-indigo-600 hover:bg-sky-700"
+                  className="block px-3 py-2 text-base font-semibold text-indigo-500 hover:bg-sky-700"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Bosh sahifa
