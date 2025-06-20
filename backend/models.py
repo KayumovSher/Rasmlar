@@ -22,6 +22,7 @@ class Image(models.Model):
         ('sertificates', 'Sertificates'),
         ('sport', 'Sport'),
         ('technology', 'Technology'),
+        ('users', 'Users'),
         
     ]
     WALLPAPER_TYPE_CHOICES = [

@@ -16,6 +16,7 @@ const categories = [
   { key: "sertificates", label: "Sertifikat" },
   { key: "sport", label: "Sport" },
   { key: "technology", label: "Texnologiya" },
+  { key: "users", label: "Foydalanuvchilar" },
 ];
 
 function Home() {
