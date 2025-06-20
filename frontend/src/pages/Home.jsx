@@ -27,6 +27,24 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const backgroundImages = [
+    "/Home/Home.png",
+    "/Home/Home1.jpg",
+    "/Home/Home2.jpg",
+    "/Home/Home3.jpg",
+    "/Home/Home4.jpg",
+    "/Home/Home5.jpg",
+    "/Home/Home6.jpg",
+    "/Home/Home7.jpg",
+    "/Home/Home8.jpg",
+    "/Home/Home9.png",
+    "/Home/Home10.jpeg",
+    "/Home/Home11.jpg",
+    "/Home/Home12.jpg",
+    "/Home/Home13.jpg",
+  ];
 
   useEffect(() => {
     fetchImages();
@@ -37,19 +55,21 @@ function Home() {
   }, [searchTerm, images]);
 
   useEffect(() => {
-    if (showModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 10000); // 15 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = showModal ? "hidden" : "auto";
   }, [showModal]);
 
   const fetchImages = (categoryKey = "") => {
     setLoading(true);
     let url = "http://127.0.0.1:8000/api/image/";
-    if (categoryKey) {
-      url += `?category=${categoryKey}`;
-    }
+    if (categoryKey) url += `?category=${categoryKey}`;
 
     fetch(url)
       .then((res) => res.json())
@@ -65,38 +85,38 @@ function Home() {
       });
   };
 
-  const filterByCategory = (categoryKey) => {
-    setActiveCategory(categoryKey);
-    fetchImages(categoryKey);
+  const filterByCategory = (key) => {
+    setActiveCategory(key);
+    fetchImages(key);
   };
 
   const filterImages = () => {
-    const lowerSearch = searchTerm.toLowerCase();
-    const result = images.filter(
-      (img) =>
-        img.title?.toLowerCase().includes(lowerSearch) ||
-        img.category?.toLowerCase().includes(lowerSearch)
+    const search = searchTerm.toLowerCase();
+    setFilteredImages(
+      images.filter(
+        (img) =>
+          img.title?.toLowerCase().includes(search) ||
+          img.category?.toLowerCase().includes(search)
+      )
     );
-    setFilteredImages(result);
   };
 
   return (
     <>
-      {/* Section with background image */}
+      {/* Hero Section */}
       <div
-        className="relative rounded-lg h-200 text-white"
+        className="relative rounded-lg h-[850px] text-white transition-all duration-1000 ease-in-out"
         style={{
-          backgroundImage: "url('/Home/Home.png')",
+          backgroundImage: `url('${backgroundImages[currentImageIndex]}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Overlay */}
-        <div className="backdrop-brightness-100 w-full min-h-[550px] px-6 py-10 flex flex-col items-center justify-center text-center space-y-6 z-10 relative">
-          <h1 className="text-2xl lg:text-2xl font-bold leading-snug">
-          Vizual tasvirlar uchun internet manbasi.
-          Hamma joyda ijodkorlar tomonidan quvvatlanadi.
+        <div className="backdrop-brightness-100 w-full min-h-[850px] px-6 py-10 flex flex-col items-center justify-center text-center space-y-6 z-10 relative">
+          <h1 className="text-2xl lg:text-2xl font-bold leading-snug font-sans">
+            Vizual tasvirlar uchun internet manbasi. <br />
+            Hamma joyda ijodkorlar tomonidan quvvatlanadi.
           </h1>
 
           <div className="relative w-full max-w-xl z-10">
@@ -112,6 +132,7 @@ function Home() {
         </div>
       </div>
 
+      {/* Gallery Section */}
       <div className="relative isolate px-4 pt-10 lg:px-8 min-h-screen">
         <BlobBackground position="top" />
         <BlobBackground position="bottom" />
@@ -133,7 +154,7 @@ function Home() {
           ))}
         </div>
 
-        {/* Image Gallery */}
+        {/* Images */}
         <div className="px-4 sm:px-20">
           <div className="columns-2 gap-4 sm:columns-3 sm:gap-8 mt-20">
             {loading ? (
@@ -159,33 +180,29 @@ function Home() {
         </div>
       </div>
 
-      {/* Modal for selected image */}
+      {/* Modal */}
       {showModal && selectedImage && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center px-4">
           <div className="bg-white rounded-lg p-12 max-w-xl w-125 relative text-center mb-0">
-            {/* Close Button */}
             <button
               onClick={() => setShowModal(false)}
               className="absolute top-1 right-1 text-gray-500 hover:text-gray-800 text-xl"
               title="Yopish"
             >
-            ✖️
+              ✖️
             </button>
 
-            {/* Image Preview */}
             <img
               src={selectedImage.image}
               alt={selectedImage.title || "Rasm"}
               className="w-full h-auto rounded mb-5 mx-auto"
             />
 
-            {/* Download Button */}
             <button
               onClick={async () => {
                 try {
                   const token = localStorage.getItem("access");
-              
-                  // ✅ If logged in, record download in backend
+
                   if (token) {
                     await fetch("http://127.0.0.1:8000/api/record-download/", {
                       method: "POST",
@@ -196,14 +213,13 @@ function Home() {
                       body: JSON.stringify({ image_id: selectedImage.id }),
                     });
                   }
-              
-                  // ✅ Trigger browser download
+
                   const response = await fetch(selectedImage.image);
                   const blob = await response.blob();
                   const url = window.URL.createObjectURL(blob);
                   const link = document.createElement("a");
                   link.href = url;
-                  link.download = selectedImage.image.split("http://localhost:5173/user/downloads/").pop(); // original file name
+                  link.download = selectedImage.image.split("/").pop();
                   document.body.appendChild(link);
                   link.click();
                   link.remove();
@@ -211,7 +227,6 @@ function Home() {
                   console.error("Download error:", error);
                 }
               }}
-              
               className="bg-[#646cff] hover:bg-sky-700 text-white px-6 py-5 rounded-full font-semibold mb-0"
             >
               Rasmni yuklash
@@ -219,7 +234,6 @@ function Home() {
           </div>
         </div>
       )}
-
     </>
   );
 }
