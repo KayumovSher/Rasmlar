@@ -3,17 +3,20 @@ import BlobBackground from "../components/BlobBackground";
 
 const categories = [
   { key: "", label: "Hammasi" },
+  { key: "ai", label: "SI" },
   { key: "animals", label: "Hayvonlar" },
   { key: "art", label: "San'at" },
   { key: "buildings", label: "Binolar" },
   { key: "cars", label: "Avtomobillar" },
   { key: "darkness", label: "Zulmat" },
+  { key: "fashion", label: "Moda" },
   { key: "foods", label: "Taomlar" },
   { key: "nature", label: "Tabiat" },
   { key: "pc", label: "Kompyuter" },
   { key: "people", label: "Odamlar" },
   { key: "phone", label: "Telefon" },
   { key: "sertificates", label: "Sertifikat" },
+  { key: "space", label: "Koinot" },
   { key: "sport", label: "Sport" },
   { key: "technology", label: "Texnologiya" },
   { key: "users", label: "Foydalanuvchilar" },
@@ -57,7 +60,7 @@ function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
-    }, 10000); // 15 seconds
+    }, 15000); // 15 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -114,7 +117,7 @@ function Home() {
         }}
       >
         <div className="backdrop-brightness-100 w-full min-h-[850px] px-6 py-10 flex flex-col items-center justify-center text-center space-y-6 z-10 relative">
-          <h1 className="text-2xl lg:text-2xl font-bold leading-snug font-sans">
+          <h1 className=" font-bold leading-snug font-sans">
             Vizual tasvirlar uchun internet manbasi. <br />
             Hamma joyda ijodkorlar tomonidan quvvatlanadi.
           </h1>
