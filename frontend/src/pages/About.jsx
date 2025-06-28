@@ -25,22 +25,27 @@ function About() {
           <div className="bg-indigo-600/25 px-25 py-70">
             <h1 className="text-7xl font-bold mb-4">Biz haqimizda</h1>
             <p className="text-2xl">
-                Ushbu Veb-ilova sizga bepul, litsenziyaga ega, yuqori sifatdagi suratlarni toifalar bo‘yicha taqdim etish, "Rasmlar" butun dunyodagi millionlab ijodkorlarga chiroyli mahsulotlar va dizaynlarni osongina yaratishda yordam beradi.
+                Ushbu Veb-ilova sizga bepul, litsenziyaga ega, yuqori sifatdagi suratlarni toifalar bo‘yicha taqdim etish, "Pickay" butun dunyodagi millionlab ijodkorlarga chiroyli mahsulotlar va dizaynlarni osongina yaratishda yordam beradi.
             </p>
           </div>
         </div>
 
 
 
+
+
+
         {/* Photos */}
-        <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
-            {/* Decorative Backgrounds */}
+        
+        {/* <button className="relative isolate max-w-2xl shadow-md rounded-2xl space-y-4 bg-white text-gray-700 hover:bg-indigo-600 hover:text-white transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-105"> */}
+          <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
             <BlobBackground position="top" />
-          <h2 className="text-4xl font-semibold text-indigo-500">Rasmlar</h2>
-          <ul className="list-disc list-inside space-y-3">
-            <p className='text-xl' >Bizda yuz minglab bepul fotosuratlar mavjud va har kuni yangi, yuqori aniqlikdagi fotosuratlar qo'shiladi. Barcha fotosuratlar bizning foydalanuvchilarimiz tomonidan yuklangan yoki bepul rasm veb-saytlaridan olingan fotosuratlardan qo'lda tanlangan. Biz chop etilgan barcha rasmlar yuqori sifatli va "Rasmlar" litsenziyasi ostida litsenziyalanganligiga ishonch hosil qilamiz.</p>
-          </ul>
-        </div>
+            <h2 className="text-4xl font-semibold text-indigo-500">Rasmlar</h2>
+            <ul className="list-disc list-inside space-y-3">
+              <p className='text-xl' >Bizda yuz minglab bepul fotosuratlar mavjud va har kuni yangi, yuqori aniqlikdagi fotosuratlar qo'shiladi. Barcha fotosuratlar bizning foydalanuvchilarimiz tomonidan yuklangan yoki bepul rasm veb-saytlaridan olingan fotosuratlardan qo'lda tanlangan. Biz chop etilgan barcha rasmlar yuqori sifatli va "Pickay" litsenziyasi ostida litsenziyalanganligiga ishonch hosil qilamiz.</p>
+            </ul>
+          </div>
+        {/* </button> */}
 
         {/* Photo Sources */}
         <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
@@ -54,7 +59,7 @@ function About() {
         <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
           <h2 className="text-4xl font-semibold text-indigo-500">Jamoa</h2>
           <ul className="list-disc list-inside space-y-3">
-            <p className='text-xl' >ITEK kompaniyasi boshqaradi va 2025 yilda "Rasmlar" veb-ilovasiga asos solgan.</p>
+            <p className='text-xl' >ITEK kompaniyasi boshqaradi va 2025 yilda "Pickay" veb-ilovasiga asos solgan.</p>
           </ul>
         </div>
 
@@ -64,14 +69,13 @@ function About() {
             <BlobBackground position="top" />
           <h2 className="text-4xl font-semibold text-indigo-500">Bizning maqsad</h2>
           <ul className="list-disc list-inside space-y-3">
-            <p className='text-xl' >Millionlab dizaynerlar, yozuvchilar, rassomlar, dasturchilar va boshqa ijodkorlarga ajoyib mahsulotlar, dizaynlar, hikoyalar, veb-saytlar, ilovalar, sanʼat va boshqa asarlar yaratish imkonini beruvchi bemalol foydalanishlari mumkin boʻlgan chiroyli, mutlaqo bepul, suratlarga kirishda yordam beramiz. Foydalanuvchilarga  ITEK & Rasmlar litsenziyasi ostida litsenziyalangan ushbu suratlarni sodda, tez va samarali interfeys orqali xizmat ko‘rsatib taqdim etamiz. Barcha fotosuratlar yaxshi yorliqlangan, qidirish mumkin va kashf qilish sahifalarimiz orqali osongina topish mumkin.</p>
+            <p className='text-xl' >Millionlab dizaynerlar, yozuvchilar, rassomlar, dasturchilar va boshqa ijodkorlarga ajoyib mahsulotlar, dizaynlar, hikoyalar, veb-saytlar, ilovalar, sanʼat va boshqa asarlar yaratish imkonini beruvchi bemalol foydalanishlari mumkin boʻlgan chiroyli, mutlaqo bepul, suratlarga kirishda yordam beramiz. Foydalanuvchilarga Pickay litsenziyasi ostida litsenziyalangan ushbu suratlarni sodda, tez va samarali interfeys orqali xizmat ko‘rsatib taqdim etamiz. Barcha fotosuratlar yaxshi yorliqlangan, qidirish mumkin va kashf qilish sahifalarimiz orqali osongina topish mumkin.</p>
           </ul>
         </div>
 
         {/* About the Creator */}
         <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
             {/* Decorative Backgrounds */}
-            <BlobBackground position="top" />
           <h2 className="text-4xl font-semibold text-indigo-500">Loyiha asoschisi haqida</h2>
           <ul className="list-disc list-inside space-y-3">
             <p className='text-xl' >"Ushbu loyiha ITEK kompaniyasi veb dasturchilari tomonidan ishlab chiqilgan."</p>

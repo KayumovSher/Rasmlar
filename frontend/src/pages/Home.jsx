@@ -108,7 +108,7 @@ function Home() {
     <>
       {/* Hero Section */}
       <div
-        className="relative rounded-lg h-[850px] text-white transition-all duration-1000 ease-in-out"
+        className="bg-fixed relative rounded-lg h-[850px] text-white transition-all duration-1000 ease-in-out"
         style={{
           backgroundImage: `url('${backgroundImages[currentImageIndex]}')`,
           backgroundSize: "cover",
@@ -146,10 +146,10 @@ function Home() {
             <button
               key={key}
               onClick={() => filterByCategory(key)}
-              className={`px-3 py-1.5 text-sm rounded font-medium transition-all duration-200 ${
+              className={`px-3 py-1.5 text-sm rounded font-medium transition delay-150 duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-105 ${
                 activeCategory === key
                   ? "bg-sky-700 text-white"
-                  : "bg-indigo-400 text-white hover:bg-sky-700"
+                  : "bg-indigo-500 text-white hover:bg-sky-700"
               }`}
             >
               {label}
@@ -230,8 +230,23 @@ function Home() {
                   console.error("Download error:", error);
                 }
               }}
-              className="bg-[#646cff] hover:bg-sky-700 text-white px-6 py-5 rounded-full font-semibold mb-0"
+              className="bg-indigo-500 text-white hover:bg-sky-700 hover:text-white px-6 py-4 rounded-full font-semibold mb-0 flex items-center gap-2 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
             >
+              {/* Download Icon */}
+              <svg
+                xmlns="/Icon/download.svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5m-4.5 4.5V3"
+                />
+              </svg>
               Rasmni yuklash
             </button>
           </div>

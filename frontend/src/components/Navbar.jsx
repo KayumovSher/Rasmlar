@@ -41,8 +41,8 @@ export default function Navbar({ user, logout }) {
           <Link to="/" className="h-10 w-30">
           <img
             className=""
-            src="/Navbar/Rasmlar_logo.png"
-            alt="Rasmlar logo"
+            src="/Navbar/Pickay.png"
+            alt="Pickay logo"
           />
           </Link>
         </div>

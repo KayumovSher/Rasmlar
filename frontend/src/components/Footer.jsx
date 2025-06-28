@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="bg-gray-800 text-white py-10 relative isolate w-full">
       <div className="text-center text-lg">
-        <p>&copy; 2025 Rasmlar · Made by IT Enginnering Kayumov. All rights reserved.</p>
+        <p>&copy; 2025 Rasmlar · Made by ITEK. All rights reserved.</p>
 
         {/* Social Links */}
         <div className="flex justify-center gap-6 mt-4 text-xl">

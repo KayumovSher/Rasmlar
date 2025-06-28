@@ -25,7 +25,7 @@ function License() {
           <div className="px-6 py-15">
             <h1 className="text-7xl font-bold mb-4 text-sky-700">Litsenziya</h1>
             <p className="text-2xl text-sky-700">
-                <strong>Rasmlar</strong> veb-ilovasi xizmatidan qanday foydalanish mumkinligini belgilab beruvchi xususiy hujjat.
+                <strong>Pickay</strong> veb-ilovasi xizmatidan qanday foydalanish mumkinligini belgilab beruvchi xususiy hujjat.
             </p>
           </div>
         </div>
@@ -34,19 +34,19 @@ function License() {
         <h2 className="text-4xl font-semibold text-sky-700 py-3">Nimaga ruxsat berilgan ✅</h2>
         <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
           <ul className="list-disc list-inside space-y-3">
-            <p className='text-xl' >Rasmlar ilovasidagi barcha fotosuratlardan foydalanish bepul.</p>
+            <p className='text-xl' >Pickay ilovasidagi barcha fotosuratlardan foydalanish bepul.</p>
           </ul>
         </div>
 
         <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
           <ul className="list-disc list-inside space-y-3">
-            <p className='text-xl' >Atribut shart emas. Fotosuratchi yoki Ilovaga kredit berish shart emas, lekin har doim Rasmlar maxsulotlari qadrlanadi.</p>
+            <p className='text-xl' >Atribut shart emas. Fotosuratchi yoki Ilovaga kredit berish shart emas, lekin har doim Pickay maxsulotlari qadrlanadi.</p>
           </ul>
         </div>
 
         <div className="relative isolate max-w-2xl mx-auto  bg-white shadow-md rounded-2xl p-6 text-left text-gray-700 space-y-4">
           <ul className="list-disc list-inside space-y-3">
-            <p className='text-xl' >Siz Rasmlar veb ilovasidagi fotosuratlarni o'zgartirishingiz mumkin. Ijodkor bo'ling va ularni xohlaganingizcha tahrirlang.</p>
+            <p className='text-xl' >Siz Pickay veb ilovasidagi fotosuratlarni o'zgartirishingiz mumkin. Ijodkor bo'ling va ularni xohlaganingizcha tahrirlang.</p>
           </ul>
         </div>
 
